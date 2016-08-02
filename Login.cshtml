@@ -1,0 +1,36 @@
+﻿@model Rewards_3_.Models.user
+@{
+    Layout = null;
+    ViewBag.Title = "Login";
+}
+
+<h2>Sign in to your account</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true, "Login failed. Check your login details.");
+    <div>
+        <fieldset>
+            <div class="editor-label">
+                @Html.Label("User name:")
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.userId)
+                @Html.ValidationMessageFor(model => model.userId)
+            </div>
+<div class="editor-label">
+                @Html.Label("Password:")
+            </div>
+            <div class="editor-field">
+                @Html.PasswordFor(model => model.password)
+                @Html.ValidationMessageFor(model => model.password)
+            </div>
+<div class="editor-label">
+                @Html.CheckBoxFor(model => model.rememberMe)
+                @Html.Label("Remember me?")
+            </div>
+            <input type="submit" value="Log In" />
+        </fieldset>
+    </div>
+}
+
+
